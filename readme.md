@@ -19,4 +19,4 @@ yarn run build
 
 ## License
 
-SmartFlat Web API is released under [the MIT license](/license.md).
+SmartFlat Web API is [MIT-licensed](/license.md).

@@ -2,6 +2,10 @@
 
 import fs from 'fs'
 
+// internal
+
+import * as session from './session'
+
 // endregion
 
 // region routes
@@ -9,13 +13,8 @@ import fs from 'fs'
 export default ({api, config}) => ({
 	name: 'web-api',
 	routes: [
-		['get', 'account', [], {
-			status: 200,
-			body: api.foo,
-			headers: {
-				'Content-Type': 'text/plain; charset-utf-8'
-			}
-		}]
+		['get', 'v1/session', ['headers'], session.verify(api)],
+		['post', 'v1/session', ['headers', 'body'], session.signIn(api)]
 	]
 })
 

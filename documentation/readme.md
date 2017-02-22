@@ -24,6 +24,7 @@ GET /m/web-api/session
 <summary>*Response*</summary>
 
 ```http
+HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
@@ -37,7 +38,7 @@ Content-Type: application/json; charset=utf-8
 ### Sign in
 
 ```http
-POST /m/web-api/session
+POST /m/web-api/session HTTP/1.1
 
 {
 	"name": "...",
@@ -45,10 +46,38 @@ POST /m/web-api/session
 }
 ```
 
+<details>
+<summary>*Response*</summary>
+
+```http
+HTTP/1.1 200 OK
+Set-Cookie: token=...
+
+{
+	"name": "...",
+	"iat": "epoch-time",
+	"exp": "epoch-time"
+}
+```
+</details>
+
 ### Sign out
 
 ```http
 DELETE /m/web-api/session
 ```
+
+<details>
+<summary>*Response*</summary>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+	"message": "Success"
+}
+```
+</details>
 
 ## TBD
