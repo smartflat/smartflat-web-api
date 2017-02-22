@@ -1,0 +1,32 @@
+{
+  "author": "Florian Wendelborn <dodekeract@users.noreply.github.com>",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "stage-3"
+    ]
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "smartflat-web-api",
+  "repository": "https://dodekeract@github.com/smartflat/smartflat-web-api.git",
+  "scripts": {
+    "build": "yarn run build-clean && yarn run build-transpile",
+    "build-clean": "rm -rf build/",
+    "build-transpile": "babel source -d build",
+    "watch": "nodemon --watch source --watch webpack.config.js --watch package.json -e js,json --exec \"yarn run build\""
+  },
+  "version": "0.0.0",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-stage-3": "^6.22.0"
+  }
+}
