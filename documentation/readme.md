@@ -21,17 +21,17 @@ GET /m/web-api/session
 ```
 
 <details>
-	<summary>*Response*</summary>
+<summary>*Response*</summary>
 
-	```http
-	Content-Type: application/json; charset=utf-8
+```http
+Content-Type: application/json; charset=utf-8
 
-	{
-		"name": "...",
-		"iat": "epoch-time",
-		"exp": "epoch-time"
-	}
-	```
+{
+	"name": "...",
+	"iat": "epoch-time",
+	"exp": "epoch-time"
+}
+```
 </details>
 
 ### Sign in
