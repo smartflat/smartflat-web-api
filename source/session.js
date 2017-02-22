@@ -9,7 +9,7 @@ import cook from 'cookie'
 export const verify = api => async ({cookie}) => {
 	const {token} = cook.parse(cookie || '')
 	try {
-		const result = await api.account.verify(token)
+		const result = await api.session.verify(token)
 		return {
 			status: 200,
 			body: JSON.stringify(result, null, '\t'),
@@ -32,21 +32,21 @@ export const verify = api => async ({cookie}) => {
 
 // endregion
 
-// region signIn
+// region sign-in
 
 export const signIn = api => async ({origin}, body) => {
 	try {
 		const {name, password} = JSON.parse(body)
 		try {
-			const result = await api.account.signIn({name, password})
+			const result = await api.session.create({name, password})
 			return {
 				status: 200,
 				body: '',
 				headers: {
 					'Set-Cookie': cook.serialize('token', result, {
 						domain: origin.split('//')[1],
-						maxAge: 86400,
 						httpOnly: true,
+						maxAge: 86400,
 						path: '/',
 						secure: true
 					})
@@ -75,5 +75,26 @@ export const signIn = api => async ({origin}, body) => {
 		}
 	}
 }
+
+// endregion
+
+// region sign-out
+
+export const remove = api => ({origin}) => ({
+	status: 200,
+	body: JSON.stringify({
+		message: 'Success'
+	}, null, '\t'),
+	headers: {
+		'Content-Type': 'application/json; charset=utf-8',
+		'Set-Cookie': cook.serialize('token', '', {
+			domain: origin.split('//')[1],
+			httpOnly: true,
+			maxAge: 0,
+			path: '/',
+			secure: true
+		})
+	}
+})
 
 // endregion

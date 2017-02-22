@@ -72,6 +72,7 @@ DELETE /m/web-api/session
 
 ```http
 HTTP/1.1 200 OK
+Set-Cookie: token=; Max-Age=0; ...
 Content-Type: application/json; charset=utf-8
 
 {

@@ -14,7 +14,8 @@ export default ({api, config}) => ({
 	name: 'web-api',
 	routes: [
 		['get', 'v1/session', ['headers'], session.verify(api)],
-		['post', 'v1/session', ['headers', 'body'], session.signIn(api)]
+		['post', 'v1/session', ['headers', 'body'], session.signIn(api)],
+		['delete', 'v1/session', ['headers'], session.remove(api)]
 	]
 })
 
