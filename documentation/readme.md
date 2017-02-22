@@ -20,6 +20,18 @@ This module exposes a RESTful API on `your.smartfl.at/m/web-api`.
 GET /m/web-api/session
 ```
 
+**Response**:
+
+```http
+Content-Type: application/json; charset=utf-8
+
+{
+	"name": "...",
+	"iat": "epoch-time",
+	"exp": "epoch-time"
+}
+```
+
 ### Sign in
 
 ```http
