@@ -1,6 +1,6 @@
 # SmartFlat Web API
 
-This module exposes a RESTful API on `your.smartfl.at/m/web-api`.
+This module exposes a RESTful JSON API on `your.smartfl.at/m/web-api`.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:1 -->
 
@@ -20,17 +20,19 @@ This module exposes a RESTful API on `your.smartfl.at/m/web-api`.
 GET /m/web-api/session
 ```
 
-**Response**:
+<summary>
+	<details>*Response*</details>
 
-```http
-Content-Type: application/json; charset=utf-8
+	```http
+	Content-Type: application/json; charset=utf-8
 
-{
-	"name": "...",
-	"iat": "epoch-time",
-	"exp": "epoch-time"
-}
-```
+	{
+		"name": "...",
+		"iat": "epoch-time",
+		"exp": "epoch-time"
+	}
+	```
+</summary>
 
 ### Sign in
 
